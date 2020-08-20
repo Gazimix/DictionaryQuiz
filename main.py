@@ -39,6 +39,6 @@ if __name__ == '__main__':
                         k += 1
                     except IndexError:
                         continue
-                percentage = round((i / len(table.rows)), 2)
+                percentage = round(i / len(table.rows), 2)
                 i += 1
                 print("Progress: " + str(percentage) + "\n")
