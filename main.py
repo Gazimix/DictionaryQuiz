@@ -25,12 +25,18 @@ if __name__ == '__main__':
                 rightHand = tmp.cells[1].text
                 leftHand = leftHand.split('\n')
                 rightHand = rightHand.split('\n')
-                for j in range(len(leftHand)):
+                k = 0
+                for j in range(len(rightHand)):
                     try:
-                        if not rightHand[j] or not leftHand[j] or rightHand[j] == " ":
+                        while leftHand[k] == "":
+                            k += 1
+                        if rightHand[j] == "":
+                            continue
+                        if not rightHand[j] or not leftHand[k] or rightHand[j] == " ":
                             continue
                         writer.writerow(
-                            {'word': str(leftHand[j]), 'meaning': str(rightHand[j])})
+                            {'word': str(leftHand[k]), 'meaning': str(rightHand[j])})
+                        k += 1
                     except IndexError:
                         continue
                 percentage = round((i / len(table.rows)), 2)
